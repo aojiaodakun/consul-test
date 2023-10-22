@@ -1,0 +1,18 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: CA159-consul-test
+  cloud:
+    consul:
+      host: ${HOST_IP:localhost}
+      #host: ${HOST_IP}
+      port: ${consultPort:8500}
+      discovery:
+        service-name: ${spring.application.name}
+        acl-token: d94e4930-eb66-9a87-f64d-0b81b362a502
+        healthCheckUrl: localhost:8083/health/check
+management:
+  endpoint:
+    health:
+      show-details: always
